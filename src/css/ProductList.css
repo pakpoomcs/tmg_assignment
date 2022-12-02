@@ -1,0 +1,7 @@
+.prodThumbnails{
+    width:200px;
+}
+
+.prodThumbnails:hover {
+    width: 500px;
+}
