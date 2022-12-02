@@ -1,7 +1,35 @@
-.prodThumbnails{
-    width:200px;
+* {
+    margin: 0;
+    padding: 2px;
 }
 
-.prodThumbnails:hover {
-    width: 500px;
+ul {
+    list-style-type:none;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.productWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #999;
+    width: 100%;
+}
+
+.prodThumbnails > img{
+    height: 200px;
+}
+
+.discountedPrice{
+    color:red;
+}
+
+.regularPrice{
+    text-decoration:line-through;
+    color: #999;
 }
