@@ -11,18 +11,33 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: flex-start;
+    align-content: center;
 }
 
 .productWrapper{
+    margin: 20px;
+    height: 450px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     border: 1px solid #999;
-    width: 100%;
+    min-width: 800px;
 }
 
-.prodThumbnails > img{
-    height: 200px;
+.prodThumbnails > img {
+    display: inline-block;
+    height: 400px;
+}
+
+.prodDetails{
+    display:block;
+    text-align: start;
+    justify-content: start;
+    flex: 1 1 150px;
+}
+
+.prodDetails > h2 {
+    text-decoration: underline;
 }
 
 .discountedPrice{
@@ -32,4 +47,7 @@ ul {
 .regularPrice{
     text-decoration:line-through;
     color: #999;
+    margin-left: 10px;
+    font-weight: 100;
+    font-size: 12px;
 }

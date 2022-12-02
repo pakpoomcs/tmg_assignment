@@ -19,31 +19,60 @@ export default class ProductList extends React.Component {
       })
   }
 
+  getBreadcrumb(main_category_en) {
+    if (typeof main_category_en.level == 'number') {
+      let breadcrumb = []
+      for (let i = 0; i < main_category_en.level - 2; i++) {
+        breadcrumb.push(main_category_en.breadcrumbs[i].category_name)
+      }
+      breadcrumb.unshift('Home')
+      return breadcrumb.join(',').replaceAll(',', ' > ')
+    }
+    return null
+  }
+
   render() {
     return (
       <div className="container">
         <h1>Products</h1>
-        <ul>
-          {this.state.products.map((x) => (
-            <div className="productWrapper">
-              <li>
-                <div className="prodThumbnails">
-                  <img alt={x.image.label} src={x.small_image.url} />
-                </div>
-                <div className="prodDetails">
-                  <h3>{x.brand.name}</h3>
-                  <h4>{x.name}</h4>
-                  <h3 className="discountedPrice">
-                    ฿{x.price_range.minimum_price.final_price.value}
-                  </h3>
-                  <h3 className="regularPrice">
-                    ฿{x.price_range.minimum_price.regular_price.value}
-                  </h3>
-                </div>
-              </li>
+        {this.state.products.map((x) => (
+          <div>
+            <div className="breadcrumb">
+              {this.getBreadcrumb(x.main_category_en)}
             </div>
-          ))}
-        </ul>
+            <div className="productWrapper">
+              <div className="prodThumbnails">
+                <img alt={x.image.label} src={x.small_image.url} />
+              </div>
+              <div className="prodDetails">
+                <h2>{x.brand.name}</h2>
+                <br></br>
+                <h4>{x.name}</h4>
+                <h3 className="discountedPrice">
+                  ฿{x.price_range.minimum_price.final_price.value}
+                  {x.price_range.minimum_price.final_price.value !==
+                  x.price_range.minimum_price.regular_price.value ? (
+                    <span className="regularPrice">
+                      ฿{x.price_range.minimum_price.regular_price.value}
+                    </span>
+                  ) : (
+                    ''
+                  )}
+                </h3>
+                {x.price_range.minimum_price.final_price.value !==
+                x.price_range.minimum_price.regular_price.value ? (
+                  <h4 className="discountedPrice">
+                    SAVE ฿
+                    {x.price_range.minimum_price.regular_price.value -
+                      x.price_range.minimum_price.final_price.value}
+                  </h4>
+                ) : (
+                  ''
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     )
   }
