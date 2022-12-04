@@ -34,7 +34,7 @@ export default class ProductList extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Products</h1>
+        <h1>Products Details</h1>
         {this.state.products.map((x) => (
           <div>
             <div className="breadcrumb">
