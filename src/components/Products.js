@@ -1,17 +1,60 @@
 import React from 'react'
 import axios from 'axios'
 import '../css/Products.css'
-import Button from 'react-bootstrap/Button'
-import { Grid } from '@mui/material'
+// import Button from 'react-bootstrap/Button'
+import { Grid} from '@mui/material'
+import { Link } from "react-router-dom";
+
+// import ProductDetails from './ProductDetails'
+
+// function ProductDisplay(props){
+//   const [selectedProduct, setSelectedProduct] = React.useState()
+// }
 
 export default class Products extends React.Component {
   state = {
     products: [],
     currentPage: 1,
     pageSize: 20,
+    product: {}
   }
 
+
+  // handleLink(product){
+  //   this.state.selectedProduct = product.id
+  //   // this.setState(selectedProduct)
+  //   console.log(product)
+  // }
+
+
+  changePageSize(){
+    this.setState({pageSize: 30}, () => {
+      console.log(this.state.pageSize)
+    })
+
+  }
+  
+  setProducts(input){
+    localStorage.removeItem('product')
+    localStorage.setItem('product', JSON.stringify(input))
+    // console.log(JSON.parse(localStorage.getItem('product')))
+
+    this.setSelectedProduct(input)
+
+    // this.state.product = input
+
+    console.log(this.state.product)
+    
+  }
+
+  getData(aaa) {
+    console.log(aaa)
+  }
+    
+
   componentDidMount() {
+    document.title = this.props.title
+
     axios
       .get(
         `https://asia-southeast1-msellercenter.cloudfunctions.net/testProducts?currentPage=${this.state.currentPage}&pageSize=${this.state.pageSize}`
@@ -23,53 +66,64 @@ export default class Products extends React.Component {
       })
   }
 
-  getPath(product) {
-    // console.log({ product })
-    console.log('hi')
-  }
   render() {
     return (
       <Grid item xs={4} className="container">
         {/* <h1 className="Title">Products Home</h1> */}
-        {this.state.products.map((product) => (
+        {this.state.products.map((x) => (
           <div>
-            <div className="productWrapper" onClick={this.getPath(product.id)}>
+            {/* <ProductDetails product={product.id}/> */}
+            <button onClick={() => this.changePageSize()}></button>
+            <div className="productWrapper">
               <div className="prodThumbnails">
-                <img alt={product.image.label} src={product.small_image.url} />
+                <img alt={x.image.label} src={x.small_image.url} />
               </div>
               <div className="prodDetails">
-                <h2>{product.brand.name}</h2>
+                <h2>{x.brand.name}</h2>
                 <br></br>
-                <h4>{product.name}</h4>
+                <h4>{x.name}</h4>
                 <h3 className="discountedPrice">
-                  ฿{product.price_range.minimum_price.final_price.value}
-                  {product.price_range.minimum_price.final_price.value !==
-                  product.price_range.minimum_price.regular_price.value ? (
+                  ฿{x.price_range.minimum_price.final_price.value}
+                  {x.price_range.minimum_price.final_price.value !==
+                  x.price_range.minimum_price.regular_price.value ? (
                     <span className="regularPrice">
-                      ฿{product.price_range.minimum_price.regular_price.value}
+                      ฿{x.price_range.minimum_price.regular_price.value}
                     </span>
                   ) : (
                     ''
                   )}
                 </h3>
-                {product.price_range.minimum_price.final_price.value !==
-                product.price_range.minimum_price.regular_price.value ? (
+                {x.price_range.minimum_price.final_price.value !==
+                x.price_range.minimum_price.regular_price.value ? (
                   <h4 className="discountedPrice">
                     SAVE ฿
-                    {product.price_range.minimum_price.regular_price.value -
-                      product.price_range.minimum_price.final_price.value}
+                    {x.price_range.minimum_price.regular_price.value -
+                      x.price_range.minimum_price.final_price.value}
                   </h4>
                 ) : (
                   ''
                 )}
                 <div>
-                  <Button
+                  <nav>
+                    <Link to={{
+                      pathname: '/details',
+                      state: {product: x}
+                    }} >Learn More</Link>
+
+                    <Link to={{
+                      pathname: '/details',
+                      state:{
+                        test: '1'
+                      }
+                    }}><button onClick={() => this.getData(x)}> Test Link </button></Link>
+                  </nav>
+                  {/* <button
                     variant="flat"
                     size="xxl"
-                    onClick={this.getPath(product.id)}
+                    onClick={() => this.setProducts(product)}
                   >
                     See more
-                  </Button>
+                  </button> */}
                 </div>
               </div>
             </div>

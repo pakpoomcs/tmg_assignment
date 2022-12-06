@@ -7,11 +7,14 @@ ul {
     list-style-type:none;
 }
 
-.container {
+.container_product {
+    justify-content: center;
+    border: 1px red solid;
     display: grid;
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
     align-content: center;
+    justify-content: center;
 }
 
 .productWrapper{

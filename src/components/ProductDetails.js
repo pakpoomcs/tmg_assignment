@@ -1,22 +1,15 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import '../css/ProductList.css'
-export default class ProductList extends React.Component {
-  state = {
-    products: [],
-    currentPage: 1,
-    pageSize: 20,
-  }
 
+export default class ProductList extends React.Component {
+  
+  consoleLog(){
+    console.log(this.state)
+  }
+  
   componentDidMount() {
-    axios
-      .get(
-        `https://asia-southeast1-msellercenter.cloudfunctions.net/testProducts?currentPage=${this.state.currentPage}&pageSize=${this.state.pageSize}`
-      )
-      .then((res) => {
-        const products = res.data.listProduct.items
-        this.setState({ products })
-      })
+    document.title = this.props.title
   }
 
   getBreadcrumb(main_category_en) {
@@ -33,9 +26,12 @@ export default class ProductList extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Products Details</h1>
-        {this.state.products.map((x) => (
+      <div className="container_product">
+        <button onClick={() => { this.consoleLog() }}>Log Props Data</button>
+
+        <h1>Product Details</h1>
+        TESTESTSET
+        {/* {this.product.map((x) => (
           <div>
             <div className="breadcrumb">
               {this.getBreadcrumb(x.main_category_en)}
@@ -72,7 +68,7 @@ export default class ProductList extends React.Component {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     )
   }
