@@ -22,22 +22,22 @@ ul {
     padding: 0 0 0 0;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    border: 1px solid #999;
-    width:400px;
-    /* min-width: 500px; */
-  }
-
-
+    flex-direction: column;
+    justify-content: center;
+}
+.prodThumbnails{
+    display:block;
+}
 .prodThumbnails > img {
-    display: inline-block;
+    display: block;
     height: auto;
 }
 
 .prodDetails{
     display:block;
+    width: 200px;
     text-align: start;
-    justify-content: start;
+    justify-content: center;
     flex: 1 1 150px;
 }
 

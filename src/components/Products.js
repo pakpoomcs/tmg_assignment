@@ -1,9 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import '../css/Products.css'
-// import Button from 'react-bootstrap/Button'
-import { Grid} from '@mui/material'
-import { Link } from "react-router-dom";
+import { Grid } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 // import ProductDetails from './ProductDetails'
 
@@ -16,9 +15,8 @@ export default class Products extends React.Component {
     products: [],
     currentPage: 1,
     pageSize: 20,
-    product: {}
+    product: {},
   }
-
 
   // handleLink(product){
   //   this.state.selectedProduct = product.id
@@ -26,15 +24,13 @@ export default class Products extends React.Component {
   //   console.log(product)
   // }
 
-
-  changePageSize(){
-    this.setState({pageSize: 30}, () => {
+  changePageSize() {
+    this.setState({ pageSize: 30 }, () => {
       console.log(this.state.pageSize)
     })
-
   }
-  
-  setProducts(input){
+
+  setProducts(input) {
     localStorage.removeItem('product')
     localStorage.setItem('product', JSON.stringify(input))
     // console.log(JSON.parse(localStorage.getItem('product')))
@@ -44,13 +40,15 @@ export default class Products extends React.Component {
     // this.state.product = input
 
     console.log(this.state.product)
-    
   }
 
-  getData(aaa) {
-    console.log(aaa)
+  getData(x) {
+    console.log(x.x.id)
+    this.setState({
+      product: 145320,
+    })
+    console.log(this.state.product)
   }
-    
 
   componentDidMount() {
     document.title = this.props.title
@@ -63,21 +61,30 @@ export default class Products extends React.Component {
         this.setState({
           products: res.data.listProduct.items,
         })
+
+        const a = this.state.products.filter((x) => x.id === 145320)
+        console.log(a)
       })
   }
 
   render() {
     return (
-      <Grid item xs={4} className="container">
-        {/* <h1 className="Title">Products Home</h1> */}
+      <div>
+        <Grid item xs={1} className="container">
+          <h1 className="Title">Products Home</h1>
+        </Grid>
         {this.state.products.map((x) => (
-          <div>
-            {/* <ProductDetails product={product.id}/> */}
-            <button onClick={() => this.changePageSize()}></button>
-            <div className="productWrapper">
+          <Grid
+            container
+            columns={{ xs: 3, md: 3, xl: 3 }}
+            className="productWrapper"
+          >
+            <Grid item columns={{ xs: 4, md: 12 }}>
               <div className="prodThumbnails">
                 <img alt={x.image.label} src={x.small_image.url} />
               </div>
+            </Grid>
+            <Grid item columns={{ xs: 4, md: 12 }} className="productDetails">
               <div className="prodDetails">
                 <h2>{x.brand.name}</h2>
                 <br></br>
@@ -105,17 +112,19 @@ export default class Products extends React.Component {
                 )}
                 <div>
                   <nav>
-                    <Link to={{
-                      pathname: '/details',
-                      state: {product: x}
-                    }} >Learn More</Link>
-
-                    <Link to={{
-                      pathname: '/details',
-                      state:{
-                        test: '1'
-                      }
-                    }}><button onClick={() => this.getData(x)}> Test Link </button></Link>
+                    <Link
+                      to={{
+                        pathname: '/details',
+                        state: {
+                          test: '1',
+                        },
+                      }}
+                    >
+                      <button onClick={() => this.getData({ x })}>
+                        {' '}
+                        Test Link{' '}
+                      </button>
+                    </Link>
                   </nav>
                   {/* <button
                     variant="flat"
@@ -126,10 +135,10 @@ export default class Products extends React.Component {
                   </button> */}
                 </div>
               </div>
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         ))}
-      </Grid>
+      </div>
     )
   }
 }
