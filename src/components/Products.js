@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import '../css/Products.css'
 import { Grid } from '@mui/material'
-import { Link } from 'react-router-dom'
 
 // import ProductDetails from './ProductDetails'
 
@@ -61,83 +60,33 @@ export default class Products extends React.Component {
         this.setState({
           products: res.data.listProduct.items,
         })
-
-        const a = this.state.products.filter((x) => x.id === 145320)
-        console.log(a)
       })
   }
 
   render() {
     return (
-      <div>
-        <Grid item xs={1} className="container">
+      <div className="container">
+        <Grid item xs={1}>
           <h1 className="Title">Products Home</h1>
-        </Grid>
-        {this.state.products.map((x) => (
-          <Grid
-            container
-            columns={{ xs: 3, md: 3, xl: 3 }}
-            className="productWrapper"
-          >
-            <Grid item columns={{ xs: 4, md: 12 }}>
-              <div className="prodThumbnails">
-                <img alt={x.image.label} src={x.small_image.url} />
-              </div>
-            </Grid>
-            <Grid item columns={{ xs: 4, md: 12 }} className="productDetails">
-              <div className="prodDetails">
-                <h2>{x.brand.name}</h2>
-                <br></br>
-                <h4>{x.name}</h4>
-                <h3 className="discountedPrice">
-                  ฿{x.price_range.minimum_price.final_price.value}
-                  {x.price_range.minimum_price.final_price.value !==
-                  x.price_range.minimum_price.regular_price.value ? (
-                    <span className="regularPrice">
-                      ฿{x.price_range.minimum_price.regular_price.value}
-                    </span>
-                  ) : (
-                    ''
-                  )}
-                </h3>
-                {x.price_range.minimum_price.final_price.value !==
-                x.price_range.minimum_price.regular_price.value ? (
-                  <h4 className="discountedPrice">
-                    SAVE ฿
-                    {x.price_range.minimum_price.regular_price.value -
-                      x.price_range.minimum_price.final_price.value}
-                  </h4>
-                ) : (
-                  ''
-                )}
-                <div>
-                  <nav>
-                    <Link
-                      to={{
-                        pathname: '/details',
-                        state: {
-                          test: '1',
-                        },
-                      }}
-                    >
-                      <button onClick={() => this.getData({ x })}>
-                        {' '}
-                        Test Link{' '}
-                      </button>
-                    </Link>
-                  </nav>
-                  {/* <button
-                    variant="flat"
-                    size="xxl"
-                    onClick={() => this.setProducts(product)}
-                  >
-                    See more
-                  </button> */}
+        </Grid>{' '}
+        <Grid id="GridContainer" container spacing={1}>
+          {this.state.products.map((x) => (
+            <div id="productWrapper">
+              <Grid item xs={3}>
+                <div className="divcontainer">
+                  <img src={x.image.url} />
+                  <h1 id="brand">{x.brand.name}</h1>
+                  <h3 id="productName">{x.name}</h3>
+                  <br></br>
+                  <h1 id="discountedPrice">
+                    {x.price_range.minimum_price.final_price.value}
+                  </h1>
+                  <h1>{x.price_range.minimum_price.regular_price.value}</h1>
                 </div>
-              </div>
-            </Grid>
-          </Grid>
-        ))}
+              </Grid>
+            </div>
+          ))}
+        </Grid>
       </div>
     )
   }
