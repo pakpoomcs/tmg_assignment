@@ -1,7 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 import '../css/Products.css'
-import { Grid } from '@mui/material'
+import 'bootstrap/dist/css/bootstrap.css';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import { Container } from 'react-bootstrap';
+
 
 // import ProductDetails from './ProductDetails'
 
@@ -63,30 +67,56 @@ export default class Products extends React.Component {
       })
   }
 
+  
+
   render() {
     return (
       <div className="container">
-        <Grid item xs={1}>
-          <h1 className="Title">Products Home</h1>
-        </Grid>{' '}
-        <Grid id="GridContainer" container spacing={1}>
-          {this.state.products.map((x) => (
-            <div id="productWrapper">
-              <Grid item xs={3}>
-                <div className="divcontainer">
-                  <img src={x.image.url} />
-                  <h1 id="brand">{x.brand.name}</h1>
-                  <h3 id="productName">{x.name}</h3>
+        <h4>React-Bootstrap Container Component</h4>
+        <Row>
+        <Col style={{
+          backgroundColor: 'red',
+        }}>
+          Sample First Col
+      </Col>
+        <Col style={{
+          backgroundColor: 'yellow',
+        }}>
+          Sample Second Col
+      </Col>
+        <Col style={{
+          backgroundColor: 'green',
+        }}>
+          Sample Third Col
+      </Col>
+      <Col style={{
+          backgroundColor: 'blue',
+        }}>
+          Sample Forth Col
+      </Col>
+
+      </Row>
+
+        <Container  id="GridContainer">
+        <Row>
+
+          {this.state.products.map((x, index) => (
+                <Col>
+                <div className="ProductWrapper">
+                  <img alt={x.image.label} src={x.image.url} />
+                  <h1 className="brand">{x.brand.name}</h1>
+                  <h3 className="productName">{x.name}</h3>
                   <br></br>
-                  <h1 id="discountedPrice">
+                  <h2 className="discountedPrice">
                     {x.price_range.minimum_price.final_price.value}
-                  </h1>
-                  <h1>{x.price_range.minimum_price.regular_price.value}</h1>
+                  </h2>
+                  <h2 className="originalPrice">{x.price_range.minimum_price.regular_price.value}</h2>
                 </div>
-              </Grid>
-            </div>
+                </Col>
           ))}
-        </Grid>
+        </Row>
+
+      </Container>
       </div>
     )
   }

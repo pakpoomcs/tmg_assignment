@@ -7,52 +7,37 @@ ul {
     list-style-type:none;
 }
 
-.container_product {
+.container {
+    width: 100%;
+}
+
+.ProductWrapper {
     justify-content: center;
     border: 1px red solid;
-    display: grid;
-    /* flex-wrap: wrap; */
-    /* flex-direction: column; */
-    align-content: center;
+    display: flexbox;
+    flex-wrap: wrap; 
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 250px;
 }
 
-.productWrapper{
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+.ProductWrapper > img {
+    width: 100px;
+}
+
+.ProductWrapper > .brand {
+    padding: none;
+    font-size: 1.5rem ;
+}
+.ProductWrapper > .productName {
+    padding: none;
+    font-size: 1.25rem ;
+}
+
+
+.ProductWrapper {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-}
-.prodThumbnails{
-    display:block;
-}
-.prodThumbnails > img {
-    display: block;
-    height: auto;
-}
-
-.prodDetails{
-    display:block;
-    width: 200px;
-    text-align: start;
-    justify-content: center;
-    flex: 1 1 150px;
-}
-
-.prodDetails > h2 {
-    text-decoration: underline;
-}
-
-.discountedPrice{
-    color:red;
-}
-
-.regularPrice{
-    text-decoration:line-through;
-    color: #999;
-    margin-left: 10px;
-    font-weight: 100;
-    font-size: 12px;
 }
