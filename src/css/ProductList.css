@@ -1,43 +1,25 @@
 * {
     margin: 0;
     padding: 2px;
-}
-
-ul {
-    list-style-type:none;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
+    font-family: "Roboto";
 }
 
 .productWrapper{
+    width: fit-content;
+    min-width: 800px;
     margin: 20px;
-    height: 450px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     border: 1px solid #999;
-    min-width: 800px;
+    align-items: center;
+    justify-content: center;
 }
 
 .prodThumbnails > img {
     display: inline-block;
     height: 400px;
-}
-
-.prodDetails{
-    display:block;
-    text-align: start;
-    justify-content: start;
-    flex: 1 1 150px;
-}
-
-.prodDetails > h2 {
-    text-decoration: underline;
 }
 
 .discountedPrice{
@@ -50,4 +32,10 @@ ul {
     margin-left: 10px;
     font-weight: 100;
     font-size: 12px;
+}
+
+.container_product{
+    width: auto;
+    display:flex;
+    justify-content: center;
 }

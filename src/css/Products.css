@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 2px;
+    font-family: "Roboto";
+
 }
 
 ul {
@@ -12,6 +14,7 @@ ul {
 }
 
 .ProductWrapper {
+    cursor: pointer;
     justify-content: center;
     border: 1px red solid;
     display: flexbox;
@@ -23,7 +26,7 @@ ul {
 }
 
 .ProductWrapper > img {
-    width: 100px;
+    width: 200px;
 }
 
 .ProductWrapper > .brand {
@@ -32,10 +35,17 @@ ul {
 }
 .ProductWrapper > .productName {
     padding: none;
-    font-size: 1.25rem ;
+    font-size: 1.15rem ;
 }
 
+.ProductWrapper > .originalPrice {
+    text-decoration: line-through;
+}
 
+.enteredPageSize{
+    width:100%
+
+}
 .ProductWrapper {
     display: flex;
     flex-direction: column;
