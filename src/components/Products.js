@@ -5,7 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Container } from 'react-bootstrap';
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 export default class Products extends React.Component {
   state = {
@@ -63,6 +65,7 @@ export default class Products extends React.Component {
   render() {
     return (
       <div className="container">
+
         <Row>
           <Col xs={1}>
             <label>Page Size</label>
@@ -80,17 +83,24 @@ export default class Products extends React.Component {
         <Container id="GridContainer">
         <Row>
           {this.state.products.map((x, index) => (
-                <Col key={x.id} >
+            <Col className="Columns" key={x.id} >
+                <Link to="/details">
                 <div onClick={() => {this.getID(index)}} className="ProductWrapper">
                   <img alt={x.image.label} src={x.image.url} />
+                  <hr width='100%'/>
                   <h1 className="brand">{x.brand.name}</h1>
                   <h3 className="productName">{x.name}</h3>
                   <br></br>
-                  <h2 className="discountedPrice">
-                    {x.price_range.minimum_price.final_price.value}
-                  </h2>
-                  <h2 className="originalPrice">{x.price_range.minimum_price.regular_price.value}</h2>
+                  <h3 className="discountedPrice">
+                  ฿{x.price_range.minimum_price.final_price.value}&nbsp;
+                  <span className="originalPrice">
+                    ฿{x.price_range.minimum_price.regular_price.value}
+                  </span>
+                  </h3>
+                  <p className='review'>Be the first to review</p>
+                  <button className="addToCartBtn"><AddShoppingCartIcon/></button>
                 </div>
+              </Link>
                 </Col>
           ))}
         </Row>

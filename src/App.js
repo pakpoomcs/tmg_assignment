@@ -1,6 +1,8 @@
 import Products from './components/Products'
 import ProductList from './components/ProductDetails'
+import TopBar from './components/TopBar'
 import React , {useState} from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [currProd, setCurrProd] = useState()
@@ -16,11 +18,16 @@ function App() {
     console.log(name)
   }
 
-
   return (
     <div className="App">
-      <ProductList index={currProd} />
-      <Products handleClick={sendToParent} title={getTitle}/>
+      <TopBar/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Products handleClick={sendToParent} title={getTitle}/>} />
+          <Route path="/details" element={<ProductList index={currProd} />}
+/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
