@@ -90,7 +90,6 @@ export default class Products extends React.Component {
           for (var k = arrayNum.length - 1; k >= 0; k--) {
             numText += arrayNum[k]
           }
-          console.log(numText)
 
           return numText
         default:

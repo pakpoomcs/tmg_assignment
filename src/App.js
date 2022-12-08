@@ -1,18 +1,18 @@
 import Products from './components/Products'
 import ProductList from './components/ProductDetails'
 import TopBar from './components/TopBar'
-import React , {useState} from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [currProd, setCurrProd] = useState()
-  const [title, setTitle] = useState("All Productsss")
-  
-  const sendToParent = num => {
-      setCurrProd(num)
+  const [title, setTitle] = useState('All Productsss')
+
+  const sendToParent = (num) => {
+    setCurrProd(num)
   }
 
-  const getTitle = name => {
+  const getTitle = (name) => {
     setTitle(name)
     document.title = title
     console.log(name)
@@ -20,18 +20,18 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar/>
+      <TopBar />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Products handleClick={sendToParent} title={getTitle}/>} />
-          <Route path="/details" element={<ProductList index={currProd} />}
-/>
+          <Route
+            path="/"
+            element={<Products handleClick={sendToParent} title={getTitle} />}
+          />
+          <Route path="/details" element={<ProductList index={currProd} />} />
         </Routes>
       </BrowserRouter>
     </div>
   )
 }
-
-
 
 export default App
