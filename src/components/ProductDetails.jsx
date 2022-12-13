@@ -22,6 +22,41 @@ export default class ProductList extends React.Component {
   setImage(url){
     this.setState({selectedImage: url})
   }
+
+  convertTHB(price) {
+    if (typeof price === 'number') {
+      let len = price.toString().length
+
+      // let reversedNumText = ''
+      let arrayNum = []
+      let loopCount = 0
+      let numText = ''
+      switch (true) {
+        case len >= 4:
+          for (var i = len - 1; i >= 0; i--) {
+            loopCount++
+            arrayNum.push(price.toString()[i])
+            if (loopCount % 3 === 0 && loopCount >= 3) {
+              arrayNum.push(',')
+            }
+            loopCount = loopCount % 3 === 0 ? 0 : loopCount
+          }
+
+          if (arrayNum.slice(-1)[0] === ',') {
+            arrayNum.pop()
+          }
+
+          for (var k = arrayNum.length - 1; k >= 0; k--) {
+            numText += arrayNum[k]
+          }
+
+          return numText
+        default:
+          return price
+      }
+    }
+  }
+
     
   render() {
 
@@ -1864,11 +1899,11 @@ export default class ProductList extends React.Component {
                 <p className="prodDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio neque fugiat, atque consectetur odio saepe quod, error ipsam vero maxime, recusandae voluptas! Est quae ipsa eos, at debitis rem nihil.</p>
                 <h3 className="discountedPrice">
                   {this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value !== null ? 
-                   '฿'+this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value : ''}
+                   '฿'+this.convertTHB(this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value) : ''}
                   {this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value !==
                   this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value ? (
                     <span className="regularPrice">
-                      ฿{this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value}
+                      ฿{this.convertTHB(this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value)}
                     </span>
                   ) : (
                     ''
@@ -1878,8 +1913,8 @@ export default class ProductList extends React.Component {
                 this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value ? (
                   <h4 className="savingAmount">
                     SAVE ฿
-                    {this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value -
-                      this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value}
+                    {this.convertTHB(this.state.product[this.props.index]?.price_range.minimum_price?.regular_price?.value -
+                      this.state.product[this.props.index]?.price_range.minimum_price?.final_price?.value)}
                   </h4>
                 ) : (
                   ''
