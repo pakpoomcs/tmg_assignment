@@ -5,6 +5,7 @@ import React , {useState} from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  document.title = "Product Lists"
   const [currProd, setCurrProd] = useState()
   const [title, setTitle] = useState("All Productsss")
   
@@ -15,7 +16,6 @@ function App() {
   const getTitle = name => {
     setTitle(name)
     document.title = title
-    console.log(name)
   }
 
   return (
@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Products handleClick={sendToParent} title={getTitle}/>} />
-          <Route path="/details" element={<ProductList index={currProd} />}
+          <Route path="/details" element={<ProductList index={currProd} title={title} />}
 />
         </Routes>
       </BrowserRouter>

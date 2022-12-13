@@ -1,41 +1,99 @@
 * {
     margin: 0;
     padding: 2px;
-    font-family: "Roboto";
+    font-family: 'Kanit', sans-serif;
 }
 
 .productWrapper{
     width: fit-content;
-    min-width: 800px;
+    min-width: 80%;
     margin: 20px;
-    height: auto;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    border: 1px solid #999;
+    /* border: 1px solid #999; */
     align-items: center;
     justify-content: center;
 }
 
-.prodThumbnails > img {
-    display: inline-block;
-    height: 400px;
+.mainThumbnail > img{
+    height: 70vh;
+    /* border: 4px solid green; */
+}
+
+.secondaryThumbnail > img {
+    cursor: pointer;
+    height: 15vh;
+    margin-right: 20px;
+    /* border: 3px solid blue !important; */
+}
+
+.secondaryThumbnail > img:hover{
+    border: 1px solid blue !important;
+}
+
+
+
+.prodDetails {
+    padding: 20px;
+    width:auto;
+    height:100%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.prodDetails > p {
+    width: 30vw;
+    font-weight: 300;
+    font-size: 1rem
 }
 
 .discountedPrice{
+    margin-top: 30px;
+    margin-bottom: 0;
     color:red;
+    font-weight: 500;
+    font-size: 2rem;
 }
 
 .regularPrice{
     text-decoration:line-through;
     color: #999;
     margin-left: 10px;
-    font-weight: 100;
-    font-size: 12px;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.savingAmount {
+    color: red;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+.options > span {
+    text-decoration: underline;
+    font-weight: 400;
+    margin-right: 30px;
 }
 
 .container_product{
     width: auto;
     display:flex;
     justify-content: center;
+}
+
+.addToCartBtn {
+    position:absolute;
+    bottom:300px;
+    width:30vw;
+    height:40px;
+    box-shadow: 3px 3px black;
 }
