@@ -1,6 +1,31 @@
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+.Container {
+    display: flex;
+    justify-content: center ;
+}
+
 .TopBar {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    height: 50px;
     justify-content: center;
     text-align: center;
     width: 80%;
-    background-color: red;
+    background-color: tomato;
+}
+
+.TopBar > h3 {
+    color: white;
+    font-size: 1rem !important;
+    font-weight:400 !important;
+    margin: auto;
+}
+
+.TopBar > h3:hover {
+    cursor: pointer;
+text-decoration: underline;
 }

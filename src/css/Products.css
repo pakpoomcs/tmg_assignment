@@ -1,20 +1,19 @@
 * {
     margin: 0;
     padding: 2px;
-    font-family: "Roboto";
-
+    font-family: 'Kanit', sans-serif;
 }
 
 a {
     color: inherit !important;
     text-decoration: none !important;
-  }
+}
   
 ul {
     list-style-type:none;
 }
 
-hr{
+hr {
     margin-top: 1rem !important;
     margin-bottom: 0 !important;
 }
@@ -23,8 +22,16 @@ hr{
     width: 100%;
 }
 
+.SliderContainer {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40%;
+}
+
 #GridContainer {
-    width:85%
+    width: 85%;
 }
 
 .Columns{
@@ -42,8 +49,7 @@ hr{
     align-items: flex-start;
     justify-content: flex-start;
     width: 250px;
-    height:480px;
-    /* height: 600px; */
+    height:510px;
 }
 
 .ProductWrapper > img {
@@ -53,11 +59,12 @@ hr{
 .ProductWrapper > .brand {
     text-align: start !important;
     padding: none;
-    font-size: 1.25rem ;
+    font-size: 1.7rem;
+    font-weight: 500;
 }
 .ProductWrapper > .productName {
     padding: none;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1rem ;
 }
 
@@ -69,9 +76,9 @@ hr{
 
 .originalPrice {
     text-decoration: line-through;
-    font-weight: 200;
-    font-size: 1rem ;
-    color:grey;
+    font-weight: 300;
+    font-size: 1.1rem ;
+    color:rgba(0,0,0,0.3);
 }
 
 .ProductWrapper > .addToCartBtn {
@@ -83,8 +90,7 @@ hr{
 }
 
 .enteredPageSize{
-    width:100%
-
+    width:50px;
 }
 
 p  {
