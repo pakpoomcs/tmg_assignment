@@ -1843,7 +1843,6 @@ export default class ProductList extends React.Component {
     if (typeof price === 'number') {
       let len = price.toString().length
 
-      // let reversedNumText = ''
       let arrayNum = []
       let loopCount = 0
       let numText = ''
