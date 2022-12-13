@@ -52,7 +52,13 @@ hr {
     height:510px;
 }
 
-.ProductWrapper > img {
+.imgComp{
+    border:0;
+    float:left;
+    position: relative;
+}
+
+.imgComp > img {
     width: 200px;
 }
 
@@ -87,6 +93,26 @@ hr {
     width:100%;
     height:40px;
     box-shadow: 3px 3px black;
+}
+
+
+.cornerimage {
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid orangered;
+    border-radius: 10px 0 10px 10px;
+    text-align: center;
+    color:white;
+    background-color: orangered;
+  }
+
+.cornerimage > p {
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 .enteredPageSize{

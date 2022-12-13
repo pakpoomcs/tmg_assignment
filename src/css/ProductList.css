@@ -15,6 +15,7 @@
     /* border: 1px solid #999; */
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .mainThumbnail > img{
@@ -92,7 +93,7 @@
 
 .addToCartBtn {
     position:absolute;
-    bottom:300px;
+    bottom:0;
     width:30vw;
     height:40px;
     box-shadow: 3px 3px black;
