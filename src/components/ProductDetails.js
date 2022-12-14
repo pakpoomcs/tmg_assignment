@@ -1,6 +1,5 @@
 import React from 'react'
-import '../css/ProductList.css'
-// import axios from 'axios'
+import '../css/ProductDetails.css'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import mockupData from '../data/mockupData';
 
@@ -80,6 +79,12 @@ export default class ProductList extends React.Component {
               <div className="prodThumbnails">
                 <div className="mainThumbnail">
                   <img src={this.state.selectedImage} alt={this.state.product[this.props.index]?.image?.label}/>
+                  {
+                        this.state.product[this.props.index]?.price_range.minimum_price.final_price.value !== this.state.product[this.props.index]?.price_range.minimum_price.regular_price.value ? (
+                          <div className="cornerimage_detail"><p>Save {this.state.product[this.props.index]?.price_range.minimum_price.discount.percent_off}%</p></div>
+
+                        ):''
+                      }
                 </div>
                   {
                     this.state.product[this.props.index]?.second_image?.url !== "" ? 
