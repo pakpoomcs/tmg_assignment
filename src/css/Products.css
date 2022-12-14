@@ -24,11 +24,40 @@ hr {
 
 .SliderContainer {
     display:flex;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 40%;
+    justify-content: center;
+    width: 100%;
 }
+
+.Slider {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.Slider > input {
+    width: 100%;
+}
+
+.currRange {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+}
+
+.Header {
+    margin: 20px;
+    width:100%;
+    text-align: center;
+}
+
+.Header > p {
+    color: darkgrey;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 
 #GridContainer {
     width: 85%;
@@ -53,6 +82,9 @@ hr {
 }
 
 .imgComp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
     border:0;
     float:left;
     position: relative;
@@ -60,6 +92,8 @@ hr {
 
 .imgComp > img {
     width: 200px;
+    height: 230px;
+    margin-bottom: 10px;
 }
 
 .ProductWrapper > .brand {

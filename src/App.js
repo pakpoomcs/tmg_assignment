@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   document.title = "Product Lists"
   const [currProd, setCurrProd] = useState()
-  const [title, setTitle] = useState('All Productsss')
+  const [title, setTitle] = useState('TMG - Product List')
 
   const sendToParent = (num) => {
     setCurrProd(num)

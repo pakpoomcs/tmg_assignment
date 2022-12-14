@@ -4,6 +4,26 @@
     font-family: 'Kanit', sans-serif;
 }
 
+.container_product{
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.BreadCrumb{
+    margin-top: 30px;
+    height:30px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+}
+.BreadCrumb > p{
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
 .productWrapper{
     width: fit-content;
     min-width: 80%;
@@ -30,9 +50,6 @@
     /* border: 3px solid blue !important; */
 }
 
-.secondaryThumbnail > img:hover{
-    border: 1px solid blue !important;
-}
 
 
 
@@ -85,11 +102,6 @@
     margin-right: 30px;
 }
 
-.container_product{
-    width: auto;
-    display:flex;
-    justify-content: center;
-}
 
 .addToCartBtn {
     position:absolute;
