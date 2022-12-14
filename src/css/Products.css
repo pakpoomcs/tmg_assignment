@@ -96,13 +96,17 @@ hr {
     margin-bottom: 10px;
 }
 
-.ProductWrapper > .brand {
+.ProductLabels {
+    height: 100px
+}
+
+.ProductWrapper > .ProductLabels > .brand {
     text-align: start !important;
     padding: none;
     font-size: 1.7rem;
     font-weight: 500;
 }
-.ProductWrapper > .productName {
+.ProductWrapper > .ProductLabels > .productName {
     padding: none;
     font-weight: 300;
     font-size: 1rem ;

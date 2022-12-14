@@ -133,8 +133,11 @@ export default class Products extends React.Component {
                       
                     </div>
                     <hr width="100%" />
-                    <h1 className="brand">{x.brand.name}</h1>
-                    <h3 className="productName">{x.name}</h3>
+                    <div className="ProductLabels">
+                      <h1 className="brand">{x.brand.name}</h1>
+                      <h3 className="productName">{x.name}</h3>
+
+                    </div>
                     <br></br>
                     {
                       (x.price_range.minimum_price.final_price.value !== x.price_range.minimum_price.regular_price.value) ?
