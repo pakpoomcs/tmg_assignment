@@ -121,6 +121,12 @@ hr {
     color:rgba(0,0,0,0.3);
 }
 
+.originalPrice_noDiscount{
+    font-weight: 500;
+    font-size: 1.2rem ;
+    color:black;
+}
+
 .ProductWrapper > .addToCartBtn {
     position:absolute;
     bottom:0;

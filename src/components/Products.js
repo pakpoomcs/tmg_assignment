@@ -136,7 +136,9 @@ export default class Products extends React.Component {
                     <h1 className="brand">{x.brand.name}</h1>
                     <h3 className="productName">{x.name}</h3>
                     <br></br>
-                    <h3 className="discountedPrice">
+                    {
+                      (x.price_range.minimum_price.final_price.value !== x.price_range.minimum_price.regular_price.value) ?
+                      (<h3 className="discountedPrice">
                       ฿
                       {this.convertTHB(
                         x.price_range.minimum_price.final_price.value
@@ -148,7 +150,20 @@ export default class Products extends React.Component {
                           x.price_range.minimum_price.regular_price.value
                         )}
                       </span>
-                    </h3>
+                    </h3>) : 
+                      (<h3 className="discountedPrice">
+                      <span className="originalPrice_noDiscount">
+                        ฿
+                        {this.convertTHB(
+                          x.price_range.minimum_price.regular_price.value
+                        )}
+                      </span>
+                    </h3>)
+
+                    }
+
+
+
                     <p className="review">Be the first to review</p>
                     <button className="addToCartBtn">
                       <AddShoppingCartIcon />
