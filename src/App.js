@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-  document.title = "Product Lists"
+  document.title = "Product List"
   const [currProd, setCurrProd] = useState()
   const [title, setTitle] = useState('TMG - Product List')
 
